@@ -7,12 +7,14 @@ public class RadioButtons extends Base {
 	public void radioButtons()
 	{
 	driver.navigate().to("https://selenium.obsqurazone.com/radio-button-demo.php");	
-	WebElement male=driver.findElement(By.xpath("//label[@for='inlineRadio1']"));
-	WebElement female=driver.findElement(By.xpath("//label[@for='inlineRadio2']"));
+	WebElement male=driver.findElement(By.xpath("//input[@id='inlineRadio1']"));
+	WebElement female=driver.findElement(By.xpath("//input[@id='inlineRadio2']"));
+	female.click();
 	boolean isSelectFemale=female.isSelected();
 	WebElement showselectedvalue=driver.findElement(By.xpath("//button[@id='button-one']"));
 	showselectedvalue.click();
-	showselectedvalue.getText();
+	WebElement message=driver.findElement(By.xpath("//div[@id='message-one']"));
+	message.getText();
 	}
 
 	public static void main(String[] args) 
