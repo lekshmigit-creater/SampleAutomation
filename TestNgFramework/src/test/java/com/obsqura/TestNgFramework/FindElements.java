@@ -26,16 +26,18 @@ public class FindElements extends Base
   }
      @Test
   public void FindElementsDropdown()
-  {
-      driver.navigate().to("https://www.selenium.dev/"); 
+  {driver.navigate().to("https://www.selenium.dev/");
 	  String input="Português (Brasileiro)";
-	  List<WebElement> englishList=driver.findElements(By.xpath("//ul[@class='dropdown-menu']//a"));
-	  for(WebElement english:englishList)
+	  WebElement english=driver.findElement(By.xpath("(//a[contains(@class,'toggle')])[2]"));
+	  english.click();
+	  List<WebElement> englishList=driver.findElements(By.xpath("//div[@class='dropdown']//li"));
+      
+	  for(WebElement menu:englishList)
       {
-     String englishText=english.getText();
+     String englishText=menu.getText();
      if(englishText.equals(input))
     {
-     english.click();
+     menu.click();
      break;
     }
       }
